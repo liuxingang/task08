@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimun-scale=1,user-scalable=no">
+    <title>百度新闻</title>
+    <link type="text/css" href="css/index.css" rel="stylesheet"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/myjs.js"></script>
+    <script>
+        window.onload = function(){
+            loadXMLDoc();
+        };
+        function loadXMLDoc(){
+            var xmlhttp;
+            if(window.XMLHttpRequest){
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }else{
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState==4 && xmlhttp.status == 200){
+                    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("GET","tuijian.php",true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+<!--承载层-->
+<div id="wrapper" class="news">
+    <div id="index_view" style="display:block">
+        <!--头部 工具栏-->
+        <header>
+            <div class="ui-new-toolbar">
+                <!--左边工具栏-->
+                <div class="ui-new-toolbar-1">
+                    <div class="ui-new-toolbar-btn btn-baidu"></div>
+                    <div class="ui-new-toolbar-btn btn-userhome"></div>
+                </div>
+                <!--右边工具栏-->
+                <div class="ui-new-toolbar-r">
+                    <div class="ui-new-toolbar-btn btn-search"></div>
+                    <div class="ui-new-toolbar-btn btn-subscribe"></div>
+                </div>
+            </div>
+        </header>
+        <!--内容区-->
+        <div id="index_view_content">
+            <!--标签导航-->
+            <div id="index_view_navigator">
+                <!--分隔线-->
+                <div class="divider"></div>
+                <!--标签 内容-->
+                <div class="content">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td colspan="1">
+                                <div id="tuijian">
+                                    <b></b>
+                                    <span id="aa" class="cur">推荐</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div id="baijia">
+                                    <b></b>
+                                    <span id="dd" class="">百家</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">本地</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">图片</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">娱乐</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">社会</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">军事</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">科技</span>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div>
+                                    <b></b>
+                                    <span class="">互联网</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">女人</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">搞笑</span>
+                                    <div class="more">
+                                        更多
+                                        <div class="down-triangle"></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="tr_none" style="display:none">
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">生活</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">国际</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">国内</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">体育</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">汽车</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">财经</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="tr_none" style="display:none ">
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">房产</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">时尚</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">教育</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">游戏</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">旅游</span>
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div>
+                                    <b></b>
+                                    <span class="">人文</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="tr_none" style="display:none ">
+                            <td colspan="2">
+                                <div>
+                                    <b></b>
+                                    <span class="">创意</span>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div>
+                                    <b></b>
+                                    <span class="">互联网+</span>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--分隔线-->
+                <div class="divider tail"></div>
+                <!--标签 底部-->
+                <div class="footer" style="display: none">
+                    <div class="btn-group">
+                        <div class="reporter-rank">记者榜</div>
+                        <div class="media-rank">
+                            <b></b>
+                            媒体榜
+                        </div>
+                        <div class="manage-subscribe">
+                            <b></b>
+                            删除及排序
+                        </div>
+                    </div>
+                    <!--收起btn-->
+                    <div class="less">
+                        收起
+                        <div class="up-triangle"></div>
+                    </div>
+                </div>
+            </div>
+            <!--内容区-->
+            <div id="index_view_sections">
+                <div class="index-view-subpage" style="display: block">
+                    <!--图片轮播-->
+                    <div class="topic-gallery-container">
+                        <div class="topic-gallery ui-line-icons">
+                            <!--图片列表-->
+                            <div class="g-list" style="height:221px;transform: translateX(-365px);transition: none;">
+                                <!--第一张图片-->
+                                <div class="g-item" style="width: 100%">
+                                    <div class="g-item-innerbox">
+                                        <div class="g-imagebox" style="height:222px;">
+                                            <img class="lazy-load" src="images/timg.jpg"/>
+                                        </div>
+                                        <h4 class="g-title">
+                                            <span>武汉一轿车撞断护栏 冲进东湖</span>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <!--第二张图片-->
+                                <div class="g-item" style="width: 100%">
+                                    <div class="g-item-innerbox">
+                                        <div class="g-imagebox" style="height:222px;">
+                                            <img class="lazy-load" src="images/timg%20(1).jpg"/>
+                                        </div>
+                                        <h4 class="g-title">
+                                            <span>福建测风塔被冰封变"九层妖塔"</span>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <!--第三张图-->
+                                <div class="g-item" style="width: 100%">
+                                    <div class="g-item-innerbox">
+                                        <div class="g-imagebox" style="height:222px;">
+                                            <img class="lazy-load" src="images/timg%20(2).jpg"/>
+                                        </div>
+                                        <h4 class="g-title">
+                                            <span>广州市区建国后首次下雪</span>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <!--第四张图-->
+                                <div class="g-item" style="width: 100%">
+                                    <div class="g-item-innerbox">
+                                        <div class="g-imagebox" style="height:222px;">
+                                            <img class="lazy-load" src="images/timg4.png"/>
+                                        </div>
+                                        <h4 class="g-title">
+                                            <span>百度钱包胡歌新年礼</span>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <!--第一张图片-->
+                                <div class="g-item" style="width: 100%">
+                                    <div class="g-item-innerbox">
+                                        <div class="g-imagebox" style="height:222px;">
+                                            <img class="lazy-load" src="images/timg.jpg"/>
+                                        </div>
+                                        <h4 class="g-title">
+                                            <span>武汉一轿车撞断护栏 冲进东湖</span>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <!--第二张图片-->
+                                <div class="g-item" style="width: 100%">
+                                    <div class="g-item-innerbox">
+                                        <div class="g-imagebox" style="height:222px;">
+                                            <img class="lazy-load" src="images/timg%20(1).jpg"/>
+                                        </div>
+                                        <h4 class="g-title">
+                                            <span>福建测风塔被冰封变"九层妖塔"</span>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--图片焦点-->
+                            <div class="g-icons">
+                                <i class="cur"></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--新闻列表-->
+                    <div class="index-view-subpage-feed">
+                        <div id="myDiv"></div>
+                        <div id="myDiv1" style="display: none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

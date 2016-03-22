@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度新闻后台管理系统</title>
+    <link rel="stylesheet" type="text/css" href="css/manger.css">
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script>
+        window.onload = function () {
+            loadXMLDoc();
+        };
+        $(document).ready(function () {
+            $("#bj").click(function () {
+                $('.cur').removeClass('cur');
+                $('#bj').addClass('cur');
+                $('#show-wrap').css('display', 'none');
+                $('#show-wrap1').css('display', 'block');
+                $('.c-title').html("百家新闻列表");
+            });
+            $("#tj").click(function () {
+                $('.cur').removeClass('cur');
+                $('#tj').addClass('cur');
+                $('#show-wrap').css('display', 'block');
+                $('#show-wrap1').css('display', 'none');
+                $('.c-title').html("推荐新闻列表");
+            });
+            bj();
+        });
+        //页面初始化 加载新闻列表 manger.php
+        function loadXMLDoc() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("show-wrap").innerHTML = xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("GET", "manger.php", true);
+            xmlhttp.send();
+        }
+        $.ajax({
+            type: "GET",
+            url: "manger.php",
+            success: function (data) {
+                $('#haha').click(function () {
+                    doDel();
+                });
+            }
+        });
+        function doDel(id) {
+            if (confirm("确定要删除吗？")) {
+                window.location = 'action.php?action=del&id=' + id;
+            }
+        }
+        //增加新闻
+        function addphp() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    if($('#bj').attr('class')=="cur"){
+                        document.getElementById("show-wrap1").innerHTML = xmlhttp.responseText;
+                    }
+                    document.getElementById("show-wrap").innerHTML = xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("GET", "add.php", true);
+            xmlhttp.send();
+        }
+
+        function back() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    if($('#bj').attr('class')=="cur"){
+                        document.getElementById("show-wrap1").innerHTML = xmlhttp.responseText;
+                    }
+                    document.getElementById("show-wrap").innerHTML = xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("GET", "manger.php", true);
+            xmlhttp.send();
+        }
+        function bj() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("show-wrap1").innerHTML = xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("GET", "baijialist.php", true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <!--头部-->
+    <div id="header">
+        <h2>百度新闻后台管理系统</h2>
+    </div>
+    <!--main-->
+    <div id="main">
+        <div class="left-nav">
+            <ul>
+                <li><a id="tj" class="cur" href="#">推 荐</a></li>
+                <li><a id="bj" href="javascript:bj()">百 家</a></li>
+                <li><a href="#">本 地</a></li>
+                <li><a href="#">图 片</a></li>
+                <li><a href="#">娱 乐</a></li>
+                <li><a href="#">社 会</a></li>
+                <li><a href="#">军 事</a></li>
+                <li><a href="#">科 技</a></li>
+                <li><a href="#">互联网</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="r-top">
+                <div class="c-title">推荐新闻列表</div>
+            </div>
+            <div id="r-wrap">
+                <div>
+                    <a class="add-news" href="javascript:void (0)" onclick="addphp()">+增加新闻</a>
+                    <a class="add-news" href="javascript:void (0)" onclick="back()">返回新闻列表</a>
+                </div>
+                <div id="show-wrap"></div>
+                <div id="show-wrap1" style="display: none"></div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
